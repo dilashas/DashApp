@@ -168,7 +168,6 @@ del df['Date']
 # Initialize the app
 app = dash.Dash(__name__)
 app.config.suppress_callback_exceptions = True
-server = app.servergit push heroku master
 
 
 def get_options(list_stocks):
@@ -181,11 +180,22 @@ def get_options(list_stocks):
 
 app.layout = html.Div(
     children=[
+            html.Div([
+                html.H1("NEPAL COVID-19 INSIGHTS"),
+                # html.P("Add Text!")
+        ],
+            style={'padding': '8px',
+                   'backgroundColor': '#0091D5',
+                   'color': '#FFFFFF',
+                   'padding-top': '30px',
+                   'padding-left': '445px',
+                   'text-align': 'center',
+                   }),
         html.Div(className='row',
                  children=[
                     html.Div(className='four columns div-user-controls',
                              children=[
-                                 html.H2('NEPAL COVID-19 INSIGHTS',
+                                 html.H2('SEARCH BY DISTRICT',
                                          style={'color': '	#FFFFFF'}),
                                  html.P('Pick one or more districts from the dropdown below.',
                                         style={'color': '#FFFFFF'}),
@@ -214,6 +224,8 @@ app.layout = html.Div(
 )
 
 
+
+
 # Callback for timeseries price
 @app.callback(Output('timeseries', 'figure'),
               [Input('stockselector', 'value')])
@@ -231,7 +243,7 @@ def update_graph(selected_dropdown_value):
     data = [val for sublist in traces for val in sublist]
     figure = {'data': data,
               'layout': go.Layout(
-                  colorway=["#0091D5", '#FF4F00', '#375CB1', '#FF7400', '#FFF400', '#FF0056'],
+                  colorway=["#DC143C", '#FF4F00', '#0091D5', '#B3C100', '#C724B1', '#488A99'],
                   template='plotly_white',
                   paper_bgcolor='rgba(0, 0, 0, 0)',
                   plot_bgcolor='rgba(0, 0, 0, 0)',
