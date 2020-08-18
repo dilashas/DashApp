@@ -185,11 +185,12 @@ app.layout = html.Div(
                 # html.P("Add Text!")
         ],
             style={'padding': '8px',
-                   'backgroundColor': '#0091D5',
+                   'backgroundColor': '#DC143C',
                    'color': '#FFFFFF',
                    'padding-top': '30px',
-                   'padding-left': '445px',
+                   # 'padding-left': '445px',
                    'text-align': 'center',
+                   'font-size': '10px',
                    }),
         html.Div(className='row',
                  children=[
