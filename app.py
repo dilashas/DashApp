@@ -168,6 +168,7 @@ del df['Date']
 # Initialize the app
 app = dash.Dash(__name__)
 app.config.suppress_callback_exceptions = True
+server = app.server
 
 
 def get_options(list_stocks):
